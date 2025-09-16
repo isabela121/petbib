@@ -1,51 +1,90 @@
-import { WhatsappLogoIcon } from "@phosphor-icons/react/dist/ssr";
+import { WhatsappLogoIcon } from "@phosphor-icons/react/dist/ssr"
 import dogImg from '../../../public/hero-dog.webp'
-import Image from "next/image";
+import catImg from '../../../public/cat-hero.png'
+import Image from 'next/image'
 
 
 export function Hero() {
   return (
-    <section className="bg-[#e84c3d] text-white relative overflow-hidden">
-      <div className="container mx-auto py-16 px-4 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 ">
+    
+<section className="bg-[#a81d11] text-white relative overflow-hidden">
+ <h1 className="text-center pt-10 font-bold text-6xl pb-8">Big Pett Shop</h1>
+
+      <div>
+        <Image
+          src={dogImg}
+          alt='Foto do cachorro'
+          fill
+          sizes='100vw'
+          priority
+          className='object-cover opacity-60 lg:hidden'
+        />
+        <div className='absolute inset-0 bg-black opacity-40 md:hidden'></div>
+      </div>
+
+      <div className="container mx-auto pt-16 pb-16 md:pb-0 px-4 relative">
+
+        <article className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
           <div className="space-y-6">
-            <h1 className="3x1 md:text-4xl lg-:text-5xl font-bold leading-10">
+            <h1
+              className="text-3xl md:text-4xl lg:text-4xl font-bold leading-10"
+              data-aos="fade-down"
+            >
               Seu pet merece cuidado, carinho e atenção especial.
             </h1>
-            <p className="lg:text-lg">
-              Oferecemos os melhores serviços para garantir o bem estar e a
-              felicidade do seu amigo de quatro patas.
+            <p className=" lg:text-lg" data-aos="fade-right">
+              Oferecemos os melhores serviços para garantir o bem-estar e a felicidade do seu amigo de quatro patas.
             </p>
-          </div>
 
-          <a
-            href="#"
-            className="bg-green-500 px-2 rounded-md font-semibold flex items-center justify-center w-fit"
-          >
-            <WhatsappLogoIcon className="" />
-            Entrar em contato
-          </a>
 
-          <div className="mt-8">
-            <p className="text-sm mb-2">
-              <b className="bg-black text-white px-2 py-5 rounded-md">5%</b>de
-              desconto na primeira compra.
-            </p>
-          </div>
+            <a
+              data-aos="fade-up"
+              data-aos-delay="500"
+              target='_blank'
+              href={`https://wa.me/556799998800?text=Olá vim pelo site e gostaria de mais informações`}
+              className="bg-green-500 px-5 py-2 rounded-md font-semibold flex items-center justify-center w-fit gap-2"
+            >
+              
+              Contato via WhatsApp
+            </a>
 
-          <div className="space-y-6">
-            <article className="grid grid-cols-1 lg:grid-cols-2 gap-8 relative">
-              <div className="space-y-6"></div>
-              <div className="hidden md:block h-full">
-                <Image
-                src={dogImg}
-                alt='Foto do dog'
-                className="object-contain"/>
+            <div className="mt-8">
+              <p className="text-sm mb-4">
+                <b className="bg-black text-white px-2 py-1 rounded-md">5%</b> de desconto na primeira compra.
+              </p>
+
+              <div className='flex mt-4'>
+                <div className='w-32 hidden lg:block'>
+                  <Image
+                    src={catImg}
+                    alt="Foto do gato"
+                    quality={100}
+                    className='object-fill'
+                  />
+                </div>
               </div>
-            </article>
+            </div>
+
           </div>
-        </div>
+
+          <div className="hidden md:block h-full relative">
+            <Image
+              src={dogImg}
+              alt='Foto do dog'
+              className='object-contain'
+              fill
+              sizes="(max-width: 768px) 0vw, 50vw"
+              quality={100}
+              priority
+            />
+          </div>
+
+        </article>
+
       </div>
+
+
     </section>
-  );
+  )
 }
